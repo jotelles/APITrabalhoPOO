@@ -17,10 +17,9 @@ public interface UsuarioRepository extends GenericRepository<Usuario>{
 
 	boolean existsByNomeAndIdNot(String nome, long id);
 	
-	@Query(value = "update Usuario set status = not status where id = :ident", nativeQuery = true)
+	@Query(value = "update Usuario set status = not status where id = :id", nativeQuery = true)
 	@Modifying
-	@Transactional
-	void alteraStatusById(@Param("ident") long id);
+	void alteraStatusById(@Param("id") long id);
 	
 	Optional<Usuario> findByEmail(String email);
 

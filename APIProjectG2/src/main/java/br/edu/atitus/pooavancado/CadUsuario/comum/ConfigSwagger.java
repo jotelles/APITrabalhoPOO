@@ -13,8 +13,8 @@ public class ConfigSwagger {
 	 @Bean
 	 public OpenAPI customOpenAPI() {
 	 	return new OpenAPI()
-	 			.info(new Info().title("Documentação Sistema Cadastro Usuário").description("Descrição")
-	 			.contact(new Contact().name("Desenvolvedor Senior").email("developer@atitus.edu.br"))
-	 			.version("version 01"));
+	 			.info(new Info().title("Documentação da API realizada para o trabalho G2").description("Descrição")
+	 			.contact(new Contact().name("Estudante de Ciência da Computação - Jovita").email("1135184@atitus.edu.br"))
+	 			.version("version 1.0.0"));
 	 }
 }

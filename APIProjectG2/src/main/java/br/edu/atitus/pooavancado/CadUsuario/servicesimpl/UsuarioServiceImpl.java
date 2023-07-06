@@ -1,22 +1,14 @@
 package br.edu.atitus.pooavancado.CadUsuario.servicesimpl;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.function.Function;
 
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.repository.query.FluentQuery.FetchableFluentQuery;
-import org.springframework.security.core.context.SecurityContextHolder;
+
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import br.edu.atitus.pooavancado.CadUsuario.Entities.Produto;
 import br.edu.atitus.pooavancado.CadUsuario.Entities.Usuario;
-import br.edu.atitus.pooavancado.CadUsuario.repositories.GenericRepository;
+
 import br.edu.atitus.pooavancado.CadUsuario.repositories.UsuarioRepository;
 import br.edu.atitus.pooavancado.CadUsuario.services.UsuarioService;
 
@@ -42,6 +34,7 @@ public class UsuarioServiceImpl implements UsuarioService{
 	}
 
 	@Override
+	@Transactional
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		Usuario usuario = this.usuarioRepository.findByEmail(email)
 				.orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado com o e-mail: " + email));
