@@ -16,7 +16,7 @@ public class PedidoController extends GenericController<Pedido>{
 	final PedidoService pedidoService;
 	
 	public PedidoController(PedidoService pedidoService) {
-	//	super();
+		super();
 		this.pedidoService = pedidoService;
 	}
 
